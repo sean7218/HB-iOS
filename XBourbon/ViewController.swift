@@ -7,18 +7,14 @@
 //
 
 import UIKit
-
-
+import Alamofire
+import SwiftyJSON
 
 class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLayout {
     
-    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
-        print("Transiting to a new collection")
-        collectionViewLayout.invalidateLayout()
-        
-    }
     
     static let themeBlue = UIColor(red: 61/255, green: 167/255, blue: 244/255, alpha: 1) //#3da7f4
+    var bourbons: [Bourbon]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,25 +28,30 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
                                  forSupplementaryViewOfKind: UICollectionElementKindSectionFooter,
                                  withReuseIdentifier: "Footer")
         collectionView?.backgroundColor = .white
+
+        DispatchQueue.main.async {
+
+            self.fetchBourbonFromAPI()
+
+        }
+
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return bourbons?.count ?? 0
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! BourbonCollectionViewCell
+        cell.bourbon = (bourbons?[indexPath.row])!
         return cell
     }
+
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionElementKindSectionHeader {
@@ -78,9 +79,42 @@ class ViewController: UICollectionViewController, UICollectionViewDelegateFlowLa
         return 2
     }
     
-
+    override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
+        collectionViewLayout.invalidateLayout()
+    }
+    //https://s3.amazonaws.com/assets-images-seanz/bourbon.json
+    //http://localhost:8181/v1/bourbon
+    func fetchBourbonFromAPI() {
+        Alamofire.request("http://localhost:8181/v1/bourbon").responseJSON { (response) in
+            
+            //print("Request: \(String(describing: response.request))")   // original url request
+            //print("Response: \(String(describing: response.response))") // http url response
+            //print("Result: \(response.result)")                         // response serialization result
+            //print("Data: \(response.data ?? Data())")                   // Give the size of the data
+            
+            if let data = response.data {
+                let json = JSON(data: data)
+                let bourbons = json.arrayValue.map({ (json) -> Bourbon in
+                    let bourbon = Bourbon()
+                    bourbon.name = json["name"].stringValue
+                    bourbon.price = json["price"].doubleValue
+                    bourbon.rating = json["rating"].intValue
+                    bourbon.proof = json["proof"].doubleValue
+                    bourbon.taste = json["taste"].stringValue
+                    bourbon.imageUrl = json["imageUrl"].stringValue
+                    return bourbon
+                })
+                
+                self.bourbons = bourbons
+                self.collectionView?.reloadData()
+            } else {
+                
+            }
+            
+        }
+    }
+    
 }
-
 
 
 

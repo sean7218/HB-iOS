@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D45AB23DD7F006FAAC9A1DD /* Pods_XBourbon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6ACE03F32D5E581D5EE425A /* Pods_XBourbon.framework */; };
 		A79ADBCD1F605F1500B7AB6A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79ADBCC1F605F1500B7AB6A /* AppDelegate.swift */; };
 		A79ADBCF1F605F1500B7AB6A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79ADBCE1F605F1500B7AB6A /* ViewController.swift */; };
 		A79ADBD51F605F1500B7AB6A /* XBourbon.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A79ADBD31F605F1500B7AB6A /* XBourbon.xcdatamodeld */; };
@@ -15,9 +16,12 @@
 		A79ADBE21F60B45400B7AB6A /* BourbonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79ADBE11F60B45400B7AB6A /* BourbonCollectionViewCell.swift */; };
 		A79ADBE41F60B48400B7AB6A /* BourbonCollectionViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79ADBE31F60B48400B7AB6A /* BourbonCollectionViewHeader.swift */; };
 		A79ADBE61F60B49F00B7AB6A /* BourbonCollectionViewFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79ADBE51F60B49F00B7AB6A /* BourbonCollectionViewFooter.swift */; };
+		A79ADBE81F60D32F00B7AB6A /* Bourbon.swift in Sources */ = {isa = PBXBuildFile; fileRef = A79ADBE71F60D32F00B7AB6A /* Bourbon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0AC23DA9CAC1F1EEF8A93639 /* Pods-XBourbon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XBourbon.release.xcconfig"; path = "Pods/Target Support Files/Pods-XBourbon/Pods-XBourbon.release.xcconfig"; sourceTree = "<group>"; };
+		394AA936C70D31C9075E8650 /* Pods-XBourbon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XBourbon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XBourbon/Pods-XBourbon.debug.xcconfig"; sourceTree = "<group>"; };
 		A79ADBC91F605F1500B7AB6A /* XBourbon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XBourbon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A79ADBCC1F605F1500B7AB6A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A79ADBCE1F605F1500B7AB6A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -28,6 +32,8 @@
 		A79ADBE11F60B45400B7AB6A /* BourbonCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BourbonCollectionViewCell.swift; sourceTree = "<group>"; };
 		A79ADBE31F60B48400B7AB6A /* BourbonCollectionViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BourbonCollectionViewHeader.swift; sourceTree = "<group>"; };
 		A79ADBE51F60B49F00B7AB6A /* BourbonCollectionViewFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BourbonCollectionViewFooter.swift; sourceTree = "<group>"; };
+		A79ADBE71F60D32F00B7AB6A /* Bourbon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bourbon.swift; sourceTree = "<group>"; };
+		F6ACE03F32D5E581D5EE425A /* Pods_XBourbon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XBourbon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,17 +41,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D45AB23DD7F006FAAC9A1DD /* Pods_XBourbon.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F17646D04A2C5105C29B736 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				394AA936C70D31C9075E8650 /* Pods-XBourbon.debug.xcconfig */,
+				0AC23DA9CAC1F1EEF8A93639 /* Pods-XBourbon.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8F1C4666DA360CAC95130967 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F6ACE03F32D5E581D5EE425A /* Pods_XBourbon.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		A79ADBC01F605F1500B7AB6A = {
 			isa = PBXGroup;
 			children = (
 				A79ADBCB1F605F1500B7AB6A /* XBourbon */,
 				A79ADBCA1F605F1500B7AB6A /* Products */,
+				3F17646D04A2C5105C29B736 /* Pods */,
+				8F1C4666DA360CAC95130967 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,6 +91,7 @@
 				A79ADBE51F60B49F00B7AB6A /* BourbonCollectionViewFooter.swift */,
 				A79ADBE31F60B48400B7AB6A /* BourbonCollectionViewHeader.swift */,
 				A79ADBE11F60B45400B7AB6A /* BourbonCollectionViewCell.swift */,
+				A79ADBE71F60D32F00B7AB6A /* Bourbon.swift */,
 				A79ADBD61F605F1500B7AB6A /* Assets.xcassets */,
 				A79ADBD81F605F1500B7AB6A /* LaunchScreen.storyboard */,
 				A79ADBDB1F605F1500B7AB6A /* Info.plist */,
@@ -80,9 +107,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A79ADBDE1F605F1500B7AB6A /* Build configuration list for PBXNativeTarget "XBourbon" */;
 			buildPhases = (
+				D81EC793C28DE1AF298444A1 /* [CP] Check Pods Manifest.lock */,
 				A79ADBC51F605F1500B7AB6A /* Sources */,
 				A79ADBC61F605F1500B7AB6A /* Frameworks */,
 				A79ADBC71F605F1500B7AB6A /* Resources */,
+				95533E52DE869C06B9DCE3ED /* [CP] Embed Pods Frameworks */,
+				F8A331FA36C1792B382610F2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -140,12 +170,69 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		95533E52DE869C06B9DCE3ED /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-XBourbon/Pods-XBourbon-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XBourbon/Pods-XBourbon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D81EC793C28DE1AF298444A1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XBourbon-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8A331FA36C1792B382610F2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XBourbon/Pods-XBourbon-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A79ADBC51F605F1500B7AB6A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				A79ADBE21F60B45400B7AB6A /* BourbonCollectionViewCell.swift in Sources */,
+				A79ADBE81F60D32F00B7AB6A /* Bourbon.swift in Sources */,
 				A79ADBCF1F605F1500B7AB6A /* ViewController.swift in Sources */,
 				A79ADBCD1F605F1500B7AB6A /* AppDelegate.swift in Sources */,
 				A79ADBE41F60B48400B7AB6A /* BourbonCollectionViewHeader.swift in Sources */,
@@ -263,6 +350,7 @@
 		};
 		A79ADBDF1F605F1500B7AB6A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 394AA936C70D31C9075E8650 /* Pods-XBourbon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GDTG5SQZRN;
@@ -276,6 +364,7 @@
 		};
 		A79ADBE01F605F1500B7AB6A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0AC23DA9CAC1F1EEF8A93639 /* Pods-XBourbon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = GDTG5SQZRN;
@@ -306,6 +395,7 @@
 				A79ADBE01F605F1500B7AB6A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

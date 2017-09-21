@@ -11,9 +11,32 @@ import UIKit
 
 class BourbonCollectionViewCell: UICollectionViewCell {
     
+    var bourbon: Bourbon? {
+        didSet {
+            if let booz = bourbon {
+                
+                nameLabel.text = (booz.name)!
+                priceLabel.text = "  $" + String(describing: booz.price!) + "/shot"
+                proofLabel.text = "  Proof: " + String(describing: booz.proof!.rounded()) + "%"
+                ratingLabel.text = "  Rating: " + String(describing: booz.rating!) + "/752"
+                tasteLabel.text = booz.taste
+                let imurl = URL(string: booz.imageUrl!)
+                do {
+                    let imageData = try Data.init(contentsOf: imurl!)
+                    bourbonImageView.image = UIImage(data: imageData)
+                
+                } catch {
+                    print(error)
+                }
+
+                
+            }
+
+        }
+    }
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .green
+        label.backgroundColor = .white
         label.text = "Bulleit Rye Kentucky Straight Bourbon"
         label.font = UIFont(name: "BodoniSvtyTwoITCTT-BookIta", size: 12)
         return label
@@ -21,7 +44,7 @@ class BourbonCollectionViewCell: UICollectionViewCell {
     
     let priceLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .green
+        label.backgroundColor = .white
         label.font = UIFont(name: "BodoniSvtyTwoITCTT-BookIta", size: 12)
         
         label.text = " $600.00/shot"
@@ -30,7 +53,7 @@ class BourbonCollectionViewCell: UICollectionViewCell {
     
     let ratingLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .green
+        label.backgroundColor = .white
         label.font = UIFont(name: "BodoniSvtyTwoITCTT-BookIta", size: 12)
         label.text = " Rating: 569/755"
         return label
@@ -38,7 +61,7 @@ class BourbonCollectionViewCell: UICollectionViewCell {
     
     let proofLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .green
+        label.backgroundColor = .white
         label.font = UIFont(name: "BodoniSvtyTwoITCTT-BookIta", size: 12)
         label.text = " Proof: 90%"
         return label
@@ -46,15 +69,18 @@ class BourbonCollectionViewCell: UICollectionViewCell {
     
     let tasteLabel: UILabel = {
         let label = UILabel()
-        label.backgroundColor = .green
+        label.backgroundColor = .white
         label.font = UIFont(name: "BodoniSvtyTwoITCTT-BookIta", size: 12)
+        label.numberOfLines = 0
         label.text = "Tasting of this bourbon just feels right because of its exquisite aging method that was developed many many years ago."
         return label
     }()
     
     let bourbonImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.backgroundColor = .black
+        imageView.backgroundColor = .white
+        imageView.contentMode = .scaleAspectFill
+        
         return imageView
     }()
     
@@ -73,25 +99,27 @@ class BourbonCollectionViewCell: UICollectionViewCell {
     let retweetButton: UIButton = {
         let button = UIButton(type: UIButtonType.custom)
         button.setImage(#imageLiteral(resourceName: "Retweet"), for: .normal)
+
         return button
     }()
     
     let editButton: UIButton = {
         let button = UIButton(type: UIButtonType.custom)
         button.setImage(#imageLiteral(resourceName: "Reply"), for: .normal)
+      
         return button
     }()
     
     fileprivate func setupButtonViews() {
         
         let v1 = UIView()
-        v1.backgroundColor = .gray
+        v1.backgroundColor = .white
         let v2 = UIView()
-        v2.backgroundColor = .blue
+        v2.backgroundColor = .white
         let v3 = UIView()
         v3.backgroundColor = .white
         let v4 = UIView()
-        v4.backgroundColor = .purple
+        v4.backgroundColor = .white
         
         let stackView = UIStackView(arrangedSubviews: [v1, v2, v3, v4])
         stackView.axis = .horizontal
@@ -204,10 +232,11 @@ class BourbonCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
-        backgroundColor = .red
+        backgroundColor = .white
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
 }
